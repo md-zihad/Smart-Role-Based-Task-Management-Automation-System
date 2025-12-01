@@ -1,8 +1,8 @@
 const express = require('express');
 require('dotenv').config();
-const db = require('./db');
+const db = require('./config/db');
 const exampleRoutes = require('./routes/example');
-const setupSwagger = require('./swagger');
+const setupSwagger = require('./config/swagger');
 const userRoutes = require('./routes/users');
 
 const app = express();
