@@ -3,10 +3,17 @@ require('dotenv').config();
 const db = require('./db');
 const exampleRoutes = require('./routes/example');
 const setupSwagger = require('./swagger');
+const userRoutes = require('./routes/users');
 
 const app = express();
 app.use(express.json());
+
+
 app.use('/', exampleRoutes);
+app.use('/', userRoutes);
+
+
+
 setupSwagger(app); 
 
 const PORT = process.env.PORT || 4000;
@@ -15,7 +22,7 @@ app.get('/', (req, res) => {
   res.json({ ok: true, message: 'Smart Task Backend — running' });
 });
 
-// test DB connection endpoint
+
 app.get('/health/db', async (req, res) => {
   try {
     const result = await db.query('SELECT NOW() as now');
