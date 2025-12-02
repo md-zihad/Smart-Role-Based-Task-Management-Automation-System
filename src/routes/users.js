@@ -12,6 +12,8 @@ require('dotenv').config();
  * /users:
  *   get:
  *     summary: Get all users
+ *     security:
+ *       - bearerAuth: []
  *     responses:
  *       200:
  *         description: List of users
@@ -38,6 +40,8 @@ router.get('/users', async (req, res) => {
  * /users:
  *   post:
  *     summary: Create a new user
+ *     security:
+ *       - bearerAuth: []
  *     requestBody:
  *       required: true
  *       content:
